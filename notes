@@ -1,0 +1,207 @@
+about the lotto:
+- different types of games:
+   - instant win scratch-off
+      - we're not doing real scratch cards, but we can do virtual ones
+   - daily
+   - smaller number of numbers to guess
+- parametric odds
+   - if too many people join, odds of winning winning too high, so that must be configurable
+   - normal way: vary the number of balls
+   - special way (used in cross-state lottos in US; maybe for international draws here?): 5 out of 50, plus 1 out of 35
+- payout???
+   - some buyers might not have accounts, depending on design choices, so auto payouts not necessarily possible
+   - even with account details linked to accounts, auto payouts not necessarily desirable
+   - auto payouts might be cool for small winnings
+      - maybe even into a wallet, encouraging users to keep playing
+   - large payments might have to be payed out in annual payments
+- draw
+   - normally using hardware
+      - balls are visible while being mixed; instills confidence
+      - (gravity-pick or air mix -- gravity is considered more trustworthy)
+   - can software be made more trustworthy? can it be proven that nothing was tampered with?
+- buying in SA:
+   - bet slip
+      - buy a slip
+      - fill out selection
+      - present to a retailer
+      - be issued a receipt
+   - in person
+      - indicate selection to a retailer
+      - be issued a receipt
+   - at random
+      - request a random selection
+      - be issued a receipt
+   - at non-vendors
+      - pick numbers at an atm, mobile app, mobile phone
+- rollover
+   - happens if the lotto isn't won
+   - prize amount is added to the next draw's jackpot
+- estimated vs guaranteed jackpot
+   - estimated is based on expected sales
+   - guaranteed means the prize will be at least the specified amount
+- claiming
+   - < R2,000     at any retailer
+   - < R50,000    at post office
+   - > R50,000    at lotto agency office
+   - claims expire after a year
+- it's online, check it out!
+- requirements:
+   - >18, so proof of age?
+      - or, you will simply not be able to collect, so why even enter
+   - original, valid ticket is the only proof
+   - invalid if
+      - doesn't pass security/confidentiality tests (?)
+      - control number does not appear in list of issued control numbers
+      - valid winning ticket with the same control number is already used
+      - ticket is tampered with
+
+
+
+what is the mvp actually?
+
+this stack discussion: https://www.upwork.com/hiring/development/choosing-the-right-software-stack-for-your-website/
+- node.js: fast, scalable
+   - I think the same goes for golang
+- .NET is easier to debug
+   - I think the same also goes for golang
+
+the java platform: https://www.upwork.com/hiring/development/the-java-platform/
+- components: https://stackoverflow.com/questions/2841212/what-is-the-difference-between-spring-struts-hibernate-javaserver-faces-tape
+- platform-independent
+- javalang also used in android (to an extent), so shared developers (although not really in retro)
+- is it easy to integrate with hadoop? could be a pro
+
+.net framework https://www.upwork.com/hiring/development/asp-net-framework/
+- asp.net is a subset of .net?
+- nice explanation + comparison: https://www.upwork.com/hiring/development/asp-net-framework/
+
+.net vs load: link above; also https://stackoverflow.com/questions/9290160/node-js-vs-net-performance#11060092
+- similarly fast
+- node is better at load
+- .net is better at static pages
+
+node vs go: 
+https://www.reddit.com/r/golang/comments/1ye3z6/go_vs_nodejs_for_servers/
+
+Thrift: protobuf, but apache
+
+protobuf: 
+- get a list of supported langs
+- conclusion, comments in https://blog.wearewizards.io/using-protobuf-instead-of-json-to-communicate-with-a-frontend
+   for both sides of the coin (protobuf vs json)
+- pro-protobuf: https://codeclimate.com/blog/choose-protocol-buffers/
+- server- and browser-side js protobuf: https://github.com/dcodeIO/ProtoBuf.js
+   - size concerns; has light versions with less functionality
+   - has TypeScript types (nice)
+
+minified js for browser-side
+
+Server architecture?
+- Example setups: https://www.digitalocean.com/community/tutorials/5-common-server-setups-for-your-web-application
+
+what web servers exist?
+- https://en.wikipedia.org/wiki/Comparison_of_web_server_software (big list; features comparison)
+- 
+
+backend lang?
+- financial apps are traditionally built in .NET or Java
+- availability of developers within Retro (eg we got lots of Node.js and .Net folks, but few golang and fewer java devs)
+
+horizonal vs vertical scaling?
+- horizontal: add more machines
+- vertical: add more power to existing machines
+- database scaling? https://stackoverflow.com/questions/11707879/difference-between-scaling-horizontally-and-vertically-for-databases
+   - h: spread data over more nodes; each node only contains a part of the data; may incur additional licencing cost
+   - v: switch to bigger machines; involves downtime
+
+which load balancer?
+- Examples: HAProxy, Nginx, Varnish
+- Must be high-availability so that it doesn't become a single point of failure
+
+http accelerator, i.e. caching reverse proxy
+- when is this actually appropriate?
+
+master/slave db setup
+- good for many reads, few writes. do we qualify?
+
+Good RNGs?
+- probably language/framework-specific; for each proposed lang, check if there is a good RNG implementation
+
+Prove fairness of draw?
+- unit test + law of large numbers? can run once a week or something
+
+Delphi:
+- Produces dependency-less executables (I assume on Windows only)
+- GUI's, really quickly
+- Compiles really fast
+- Does it work on non-windows?
+   - Seems like it deploys to everything, but must be developed on Win
+- Datasnap is their rest platform; not good for high scale though
+
+Go mobile first:
+- responsive web app, not native (too much investment, too little advantage in this case)
+
+What is a backend provider? Eg spree?
+Backend as a service
+- eg Firebase, Kumolos, gunDB, parse (not hosted anymore), stackMob
+- Requires no prior commitment to a scale
+- Freemium; good for mvp
+- important: which ones support payment?
+
+How will payments work? (mobile and web, specifically)
+- firebase + stripe (with official tutorial)
+- stripe pricing: 2.9% + 30c -- probably too expensive (30c > R3; how much will a ticket cost?)
+- paypal pricing: ^^ same + some service fees
+- stripe vs paypal: https://memberful.com/blog/stripe-vs-paypal/
+- stripe is not in south africa, I think -- meaning you can probably pay you can't receive payments
+- south african solutions:
+   - payfast https://www.payfast.co.za/
+      - no monthly; only per-transaction fees (some are x% + >=R2); volume discount
+      - accept credit cards, instant efts
+      - existing shopping cart integrations
+      - integration seems easy -- good for mvp
+   - paygate https://www.paygate.co.za/
+      - tiered fee structure; starts at ~4%
+      - methods:
+         - SID: leverages internet banking 
+         - Visa checkout
+         - Masterpass
+         - Paypal
+         - Zapper
+   - mygate
+      - supports in-store (POS) payments :+1:
+      - online methods:
+         - credit cards
+         - eft
+         - visa checkout
+         - absa rewards
+         - mobicred
+      - developers
+         - nice API integration
+   - verifone
+      - ???
+   - net1
+      - variety of hardware solutions
+      - high presence in africa
+      - high presence in retail
+      - online/mobile seems hard to integrate
+
+
+
+mvc?
+
+
+what are the backend requirements?
+- user authentication (sign-in, maybe something stronger?)
+- payment
+- scalability
+- powerful analytics
+
+
+
+demographics + methods + activation energy:
+- I suspect that lottery tickets are bought by mostly poorer people; see if there are stats that support this
+- if so: argue that there is an untapped market for convenient lottery tickets for middle- to upper class folks, using
+   - mobile apps with accounts, linked payment, real-time notification of draws etc
+   - multiple platform access to account (mobile, web-app)
+- but also, if so, there is the problem that low-income demographic is already locked in by the current lotto. How do we win them over?
