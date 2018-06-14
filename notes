@@ -70,13 +70,13 @@ System features
             - May have to activate at an outlet to prove age
           - Add payment methods
             - Integrate with payment providers
-      - Keep track of owned tickets
-      - Claim prizes
-         - For small payouts (eg <R2000), directly into added payment method
-         - For large payouts, app can act as proof of owning a winning ticket
-            - Generate a QR-code with secure redundancy checks
-            - Email electronic ticket to owner's address
-            - Print directly (web, wifi printers)
+         - Keep track of owned tickets
+         - Claim prizes
+            - For small payouts (eg <R2000), directly into added payment method
+            - For large payouts, app can act as proof of owning a winning ticket
+               - Generate a QR-code with secure redundancy checks
+               - Email electronic ticket to owner's address
+               - Print directly (web, wifi printers)
       - Without account:
          - Once-off online payments
             - In browser: browser may remember details (external to us)
@@ -140,7 +140,7 @@ How are tickets verified?
 SMS gateways
 - Roll your own (suggest for distant future)
 - Twilio
-   - TODO: own section
+   - NB: No premium SMS!
    - Send: post to the Messages resource
    - Receive: 
    - Price: < $0.03 per sms to send
