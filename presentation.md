@@ -10,6 +10,9 @@ Agile: We deliver working software early and frequently. We work closely with ou
 # 		Proposed Project
 ## 	What we would like to build for you
 
+Overview:
+A lottery system with various draws (games), various access points for players, and critical tools for managing the system profitably.
+
 Project features:
 - Higher income players
 - Lower income players
@@ -77,15 +80,15 @@ A player can see all their tickets in one place.
 ### 	Prize claiming
 
 Prizes can be claimed with the help of the web-app or app.
-For small winnings that do not warrant in-person claims*, the amount can be payed out to a linked card.
-* For the Ithuba National Lottery, prizes under R2000 can be claimed at any outlet.
+For small winnings that do not warrant in-person claims, the amount can be payed out to a linked card.
+(For the Ithuba National Lottery, prizes under R2000 can be claimed at any outlet.)
 For large winnings, user can:
 - Get their tickets out of the app storage
 	- as scannable QR codes (inside the app)
 	- emailed to them
 	- downloaded as PDF to be printed
-- Get a filled-out claim form*
-* The Ithuba lotto requires one for larger winnings
+- Get a filled-out claim form
+(The Ithuba lotto requires one for larger winnings)
 
 ### 	Tokens instead of cash
 
@@ -153,81 +156,75 @@ In order for you to manage the system successfully, we will provide:
 
 ### 	Stats, analytics and predictions
 
+Sales reports
+Sales per platform
+Journey tracking
+Sales predictions 
+- For estimating prize amounts
+- For estimating winner odds
+Alerts when winner odds are too high
 
+### 	Adjustable odds
 
+As userbase grows, the odds of multiple people winning increase.
+Manage the odds by adjusting the number of "balls".
 
+### 	Communications
 
+Notify users of upcoming games to increase sales.
+Send important notices.
 
-// old
+### 	Finance management
 
-# 		Proposed Project Features: Lower-income players
-## 	How will lower-income players play the game?
+Track income and profits
+Manage prize amounts
 
-Lower-income players will access the system via:
-- Feature phones
-- Basic cell phones
-- Terminals
+# 		Non-functional requirements
+## 	What else can you expect from the system?
 
-# 		Feature Phone Interface
-## 	How do players interact on feature phones?
+Aside from the features, the system will provide
+- Scalability
+- High availability
+- Security
+- Auditability
 
-Feature phones have basic internet access.
+### 	Scalability
 
+The system will be able to handle rapid growth to high volumes of user requests, as well as data.
+// CRIP: high-availability load balancers
+// CRIP: multi-site deployable architecture
+// CRIP: horizontal scaling DBs
 
-// TODO: don't have MVP in the slides
+### 	High availability
 
-# 		Proposed MVPs
-## 	Target your key market first
+Users will not experience down-time.
+// TODO: how?
 
-The lower-income demographic generally spends more on lottery tickets.
-This presents two opportunities:
-1. Target an existing userbase that is known to be interested in your product
-2. Target a new userbase by re-marketing the product
+### 	Security
 
-# 		MVP-A
-## 	Targeting the lower-income demographic
+Tickets will be non-manufacturable.
+// CRIP: how do we propose this
+Draws cannot be tampered with or influenced.
 
-Demographic has limited access to technology, and especially to the internet.
+### 	Auditability
 
-Users will access the system using
-- Basic phones (no internet capabilities)
-- Feature phones (basic internet capabilities)
-- Terminals
-- Tellers
+Full reports will be generated and securely stored for all transactions and draws.
 
-Basic phones:
-- Tickets are purchased over USSD or SMS
-- Ticket price is deducted from player's airtime using premium-rated USSD or SMS. This requires integration with the carriers.
-- The ticket is sent to the user via SMS
+# 		System architecture
+## 	How is the system structured?
 
-Terminals:
-- Tickets are purchased at a hardware terminal
-- The hardware will be provided by a 3rd party
-- Upon purchase, the ticket is printed
+// TODO: draw diagrams, but probably do it on the whiteboard
+// TODO: make cripnotes about which techs to use, which alternatives exist, and the tradeoffs
+// TODO: make criptnotes about scaling
 
-Tellers:
-- At select shops (such as garages), plugins or extensions for the teller's systems will interface with our system
-- Tickets are purchased over the counter
-- Purchased tickets are printed by the slip machine
-- Payment to your company is handled by a 3rd party
+# 		Timeframe
+## 	How long will it take?
 
-// TODO: too much for an MVP! Only choose one option.
+// TODO: give a timeframe for the whole system with a preferred team size
+// TODO: how can it be made faster with more devs?
+// TODO: how can it be made faster with less features?
+// TODO: make cripnotes about MVP systems; don't present it though!
 
-
-
-// TODO: expand MVP!
-
-# 		MVP-B
-## 	Targeting the higher-income demographic
-
-Demographic has access to hi-tech consumer electronics, and have expectations about the services they access.
-
-// TODO: expand MVP
-
-# 		Complete Project
-## 	After the MVP
-
-Once an MVP is out in the wild, we can expand the system to cater for additional user experiences.
-
-// TODO: expand complete project.
+# 		Thank you
+## 	Any questions?
 
