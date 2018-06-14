@@ -56,6 +56,116 @@ about the lotto:
       - ticket is tampered with
 
 
+System features
+- Players
+   - Types of games:
+      - Lottery (pick a number)
+      - Virtual instant-win scratch tickets?
+         - Might instantly tell you whether you won something
+         - Should these be limited in quantity, mimicking physical tickets? The price of the ticket might counter the need.
+   - Web + mobile interface:
+      - With account:
+         - Register/link account with common auth providers
+            - Google, facebook, email+password, username+password, phone number+OTP, twitter
+            - May have to activate at an outlet to prove age
+          - Add payment methods
+            - Integrate with payment providers
+      - Keep track of owned tickets
+      - Claim prizes
+         - For small payouts (eg <R2000), directly into added payment method
+         - For large payouts, app can act as proof of owning a winning ticket
+            - Generate a QR-code with secure redundancy checks
+            - Email electronic ticket to owner's address
+            - Print directly (web, wifi printers)
+      - Without account:
+         - Once-off online payments
+            - In browser: browser may remember details (external to us)
+            - In app: setting to remember details
+            - Do any payment providers support this?
+         - Receive tickets via preferred method
+            - Specify method before payment to avoid lost sessions causing lost tickets
+            - Email address for QR code tickets
+            - SMS for control code?
+            - Print directly
+      - With or without account:
+         - Instantly buy tickets
+         - Push notifications
+            - Winnings
+            - Regular reminders about eg weekly games
+            - Special draws, eg guaranteed jackpots or large winnings
+         - Game stats for nerds, eg odds, number of entries
+   - Hardware terminals interface:
+      - Age will have to be an agreement-based thing
+         - Winnings will be collected in person, so underagers won't be able to collect anyway
+      - User selects a game type, enters preferred number, and confirms
+      - Machine prints ticket
+   - Feature phones interface:
+      - These have basic browsers
+      - Provide basic mobile web interface (mobi site) with similar functionality as web+mobile
+      - Signing in will have to be password-based (as opposed to automatic for signed-in providers on smart phones, but still integrated)
+   - Basic phones interface:
+      - SMS menu
+      - USSD menu
+   - Teller-based interface
+      - Teller uses one of the above methods on behalf of the player
+      - Expands reach to people without access to computers or smart phones or terminals
+      - Age verified by teller
+- Business
+   - Stats and analytics
+      - Sales reports
+         - Sales per platform
+         - Journey tracking for issue identification
+      - Sales predictions
+         - estimated prizes
+         - estimated odds of winners
+         - alerts when odds are "too good"
+   - Adjust odds
+      - More "balls"
+   - Manage notifications and communications (marketing)
+      - Upcoming games
+      - Important notices
+   - Verify wins for large amounts?
+   - Manage finances
+      - See income
+      - Control prizes
+
+How are tickets verified?
+- When ticket is issued, certain data is created on the server, then passed to the client
+- Data must match server
+- Control number combination (eg two random ctrl numbers + checksum)
+- Date, time (will also speed up verification and allow efficient data storage)
+- Asymetric auth?
+   - Digital certificate -- sign the control number with the certificate to prove that it comes from our server
+
+SMS gateways
+- Roll your own (suggest for distant future)
+- Twilio
+   - TODO: own section
+   - Send: post to the Messages resource
+   - Receive: 
+   - Price: < $0.03 per sms to send
+   - Has library (https://www.twilio.com/sms)
+      - C#/.NET, Java, Node, PHP, Python, Ruby
+      - Opt-out management
+- Infobip (Croatia)
+   - Doesn't look as cool
+- Local?
+   - Zoom.connect
+      - Pricing: decreases with volume from R.22 to R.18
+      - Basic library (no session tracking)
+   - WinSMS (https://www.winsms.co.za/products/development-tools/)
+      - simple HTTP API
+      - incoming messages must be fetched
+   - VOX (https://www.vox.co.za/sms-solutions/)
+      - offers USSD
+      - little info about api though
+
+USSD gateways (unstructured service supplementary data)
+- R.20 per 20 seconds, usually capped at 3 minutes
+- Vumi (Praekelt)
+- Channel mobile
+- Strategix
+
 
 what is the mvp actually?
 
